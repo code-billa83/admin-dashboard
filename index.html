@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#eef1f4" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row">
+        <a class="brand" href="#" aria-label="Admin home"><span class="brand-icon">▰</span><span>Admin</span></a>
+        <button class="icon-button sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation">☰</button>
+      </div>
+      <div class="profile">
+        <div class="avatar" aria-hidden="true">👨🏻</div>
+        <div class="profile-info"><strong>Hi, AC</strong><span>xyz@gmail.com</span></div>
+      </div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link active" href="#dashboard"><span class="nav-icon">▦</span><span>Dashboard</span></a>
+        <a class="nav-link" href="#apps"><span class="nav-icon">ⓘ</span><span>Apps</span></a>
+        <a class="nav-link" href="#charts"><span class="nav-icon">▣</span><span>Charts</span></a>
+        <a class="nav-link" href="#bootstrap"><span class="nav-icon">★</span><span>Bootstrap</span></a>
+        <a class="nav-link" href="#plugins"><span class="nav-icon">♥</span><span>Plugins</span></a>
+        <a class="nav-link" href="#widget"><span class="nav-icon">⚙</span><span>Widget</span></a>
+        <a class="nav-link" href="#forms"><span class="nav-icon">▤</span><span>Forms</span></a>
+        <a class="nav-link" href="#settings"><span class="nav-icon">⚒</span><span>Settings</span></a>
+      </nav>
+      <div class="sidebar-footer"><span class="status-dot"></span> All systems operational</div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div class="mobile-brand"><button class="icon-button" id="mobileMenu" aria-label="Open menu">☰</button><span
+            class="brand-icon">▰</span><strong>Admin</strong></div>
+        <h1>Dashboard</h1>
+        <div class="top-actions">
+          <label class="search-box"><input id="searchInput" type="search" placeholder="Search here..."
+              aria-label="Search dashboard"><span>⌕</span></label>
+          <button class="notification icon-button" aria-label="Tasks" title="Tasks">▣<i>2</i></button>
+          <button class="notification icon-button" aria-label="Notifications" title="Notifications">♧<i>12</i></button>
+          <button class="notification icon-button" aria-label="Messages" title="Messages">▤<i>5</i></button>
+          <button class="primary-button" id="reportButton">Generate Report <span>▥</span></button>
+        </div>
+      </header>
+
+      <section class="stats-grid" aria-label="Invoice summary">
+        <article class="stat-card purple" data-search="total invoices">
+          <div class="stat-symbol">▤</div>
+          <div><strong>2,478</strong><span>Total Invoices</span></div>
+        </article>
+        <article class="stat-card pink" data-search="paid invoices">
+          <div class="stat-symbol">✓</div>
+          <div><strong>983</strong><span>Paid Invoices</span></div>
+        </article>
+        <article class="stat-card violet" data-search="unpaid invoices">
+          <div class="stat-symbol">⊗</div>
+          <div><strong>1,256</strong><span>Unpaid Invoices</span></div>
+        </article>
+        <article class="stat-card magenta" data-search="invoices sent">
+          <div class="stat-symbol">▤</div>
+          <div><strong>652</strong><span>Total Invoices<br>Sent</span></div>
+        </article>
+      </section>
+
+      <section class="overview-panel panel" data-search="card overview account services restaurant others">
+        <div class="bank-card">
+          <div class="card-watermark"></div>
+          <div class="card-chip">◉ ◉</div>
+          <div class="card-balance"><strong>$824,571.93</strong><span>Wallet Balance</span><small>↗ +0.8% than last
+              week</small></div>
+          <button class="change-button" id="changeCard"><span>⟳</span><strong>Change</strong><small>▾</small></button>
+        </div>
+        <div class="overview-copy">
+          <h2>Card's Overview</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed.</p>
+          <div class="legend">
+            <div><span class="legend-dot account"></span><b>Account</b><span>20%</span></div>
+            <div><span class="legend-dot services"></span><b>Services</b><span>40%</span></div>
+            <div><span class="legend-dot restaurant"></span><b>Restaurant</b><span>15%</span></div>
+            <div><span class="legend-dot others"></span><b>Others</b><span>25%</span></div>
+          </div>
+        </div>
+        <div class="pie-wrap"><canvas id="overviewChart" aria-label="Card overview pie chart"></canvas></div>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel activity-panel" data-search="activity income outcome transactions">
+          <div class="panel-heading">
+            <div>
+              <h2>Activity</h2>
+              <p class="muted">Income and outcome overview</p>
+            </div>
+            <div class="chart-legend"><span><i class="income-dot"></i>Income</span><span><i
+                  class="outcome-dot"></i>Outcome</span></div>
+          </div>
+          <div class="activity-total"><strong>$79,120</strong><span class="positive">↗ 8.4%</span></div>
+          <div class="chart-container"><canvas id="activityChart" aria-label="Income and outcome bar chart"></canvas>
+          </div>
+        </article>
+
+        <article class="panel transfer-panel" data-search="quick transfer contacts send money">
+          <div class="panel-heading">
+            <div>
+              <h2>Quick Transfer</h2>
+              <p class="muted">Send money to a contact</p>
+            </div><button class="icon-button dots" aria-label="More transfer options">⋮</button>
+          </div>
+          <div class="contacts">
+            <button class="contact selected" data-name="Alex"><span
+                class="contact-avatar a1">A</span><strong>Alex</strong></button>
+            <button class="contact" data-name="Maya"><span
+                class="contact-avatar a2">M</span><strong>Maya</strong></button>
+            <button class="contact" data-name="John"><span
+                class="contact-avatar a3">J</span><strong>John</strong></button>
+            <button class="contact" data-name="Sara"><span
+                class="contact-avatar a4">S</span><strong>Sara</strong></button>
+          </div>
+          <form id="transferForm" class="transfer-form">
+            <label for="recipient">Recipient</label><input id="recipient" value="Alex" required>
+            <label for="amount">Amount (USD)</label>
+            <div class="amount-input"><span>$</span><input id="amount" type="number" min="1" step="0.01"
+                placeholder="0.00" required></div>
+            <button class="primary-button transfer-submit" type="submit">Send Transfer <span>➜</span></button>
+            <p class="form-message" id="transferMessage" role="status"></p>
+          </form>
+        </article>
+      </section>
+
+      <section class="panel transactions-panel" data-search="recent transactions invoices payments">
+        <div class="panel-heading">
+          <div>
+            <h2>Recent Transactions</h2>
+            <p class="muted">Your latest account activity</p>
+          </div><button class="text-button" id="viewAllButton">View all ↗</button>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Transaction</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="transactionRows">
+              <tr>
+                <td><span class="transaction-icon">↗</span><span class="transaction-name">Website project</span></td>
+                <td>Oct 21, 2026</td>
+                <td class="amount-positive">+$1,250.00</td>
+                <td><span class="pill paid">Completed</span></td>
+              </tr>
+              <tr>
+                <td><span class="transaction-icon expense">↙</span><span class="transaction-name">Office supplies</span>
+                </td>
+                <td>Oct 20, 2026</td>
+                <td>−$245.80</td>
+                <td><span class="pill pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td><span class="transaction-icon">↗</span><span class="transaction-name">Client payment</span></td>
+                <td>Oct 18, 2026</td>
+                <td class="amount-positive">+$890.00</td>
+                <td><span class="pill paid">Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <footer class="footer">© 2026 Admin Dashboard <span>Built for your workflow</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+
+</html>
